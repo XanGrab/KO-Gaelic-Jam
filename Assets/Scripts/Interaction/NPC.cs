@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public string[] dialogue;
+    public string[] dialogueSecret;
+    public string[] dialogueToUse;
     private int index;
 
     public GameObject contButton;
@@ -28,11 +30,11 @@ public class NPC : MonoBehaviour
                 //zeroText();
             }else{
                 dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
+                StartCoroutine(Typing(dialogueToUse));
             }
         }
 
-        if(dialogueText.text == dialogue[index]){
+        if(dialogueText.text == dialogueToUse[index]){
             contButton.SetActive(true);
         }
     }
@@ -43,8 +45,8 @@ public class NPC : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    IEnumerator Typing(){
-        foreach(char letter in dialogue[index].ToCharArray()){
+    IEnumerator Typing(string[] d){
+        foreach(char letter in d[index].ToCharArray()){
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
@@ -54,10 +56,10 @@ public class NPC : MonoBehaviour
 
         contButton.SetActive(false);
 
-        if (index < dialogue.Length - 1){
+        if (index < dialogueToUse.Length - 1){
             index++;
             dialogueText.text = "";
-            StartCoroutine(Typing());
+            StartCoroutine(Typing(dialogueToUse));
         }else{
             exit();
         }

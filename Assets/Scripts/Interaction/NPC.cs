@@ -8,7 +8,9 @@ public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
-    public string[] dialogue;
+    // public string[] dialogue;
+    [SerializeField]
+    private DialogueNode dialogueNode; 
     private int index;
 
     public GameObject contButton;
@@ -20,9 +22,7 @@ public class NPC : MonoBehaviour
         zeroText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if(playerIsClose){
             if(dialoguePanel.activeInHierarchy){
                 //zeroText();
@@ -32,8 +32,11 @@ public class NPC : MonoBehaviour
             }
         }
 
-        if(dialogueText.text == dialogue[index]){
-            contButton.SetActive(true);
+        string[] dialogue = dialogueNode.queryDialogue();
+        if(dialogue != null){
+            if(dialogueText.text == dialogue[index]){
+                contButton.SetActive(true);
+            }
         }
     }
 
@@ -44,22 +47,27 @@ public class NPC : MonoBehaviour
     }
 
     IEnumerator Typing(){
-        foreach(char letter in dialogue[index].ToCharArray()){
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
+        string[] dialogue = dialogueNode.queryDialogue();
+        if(dialogue != null){
+            foreach(char letter in dialogue[index].ToCharArray()){
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(wordSpeed);
+            }
         }
     }
 
     public void NextLine(){
-
         contButton.SetActive(false);
 
-        if (index < dialogue.Length - 1){
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
-        }else{
-            exit();
+        string[] dialogue = dialogueNode.queryDialogue();
+        if(dialogue != null){
+            if (index < dialogue.Length - 1){
+                index++;
+                dialogueText.text = "";
+                StartCoroutine(Typing());
+            }else{
+                exit();
+            }
         }
     }
 }

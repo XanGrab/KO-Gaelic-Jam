@@ -1,6 +1,6 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
@@ -24,6 +24,13 @@ public class Inventory : MonoBehaviour
     #endregion
 
     public List<Item> items = new List<Item>();
+
+    public bool Lookup (Item q) {
+        foreach(Item i in items){
+            if(i.name == q.name) return true;
+        }
+        return false;
+    }
 
     public bool Add (Item item){
         if(!item.isDefaultItem){

@@ -1,16 +1,16 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class NPC : MonoBehaviour
-{
+//TODO uncouple from Dialogue panel
+public class Speakable : MonoBehaviour {
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
-    // public string[] dialogue;
     [SerializeField]
-    private DialogueNode dialogueNode; 
+    private List<DialogueNode> responses; 
     private int index;
 
     public GameObject contButton;
@@ -20,6 +20,19 @@ public class NPC : MonoBehaviour
     public void exit(){
         playerIsClose = false;
         zeroText();
+    }
+
+    /**
+    * If this method returns null, there is no response
+    */
+    public string[] getNextResponse(){
+        var validResponses = responses.Where(e => e.checkConditions());
+        DialogueNode selectedResponse = null;
+        if(validResponses.Count() != 0) {
+            selectedResponse = validResponses.ElementAt(Random.Range(0, validResponses.Count()));
+        }
+
+        return selectedResponse?.Dialogue;        
     }
 
     void Update() {
@@ -32,7 +45,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        string[] dialogue = dialogueNode.queryDialogue();
+        string[] dialogue = getNextResponse();
         if(dialogue != null){
             if(dialogueText.text == dialogue[index]){
                 contButton.SetActive(true);
@@ -47,27 +60,23 @@ public class NPC : MonoBehaviour
     }
 
     IEnumerator Typing(){
-        string[] dialogue = dialogueNode.queryDialogue();
-        if(dialogue != null){
-            foreach(char letter in dialogue[index].ToCharArray()){
-                dialogueText.text += letter;
-                yield return new WaitForSeconds(wordSpeed);
-            }
+        string[] dialogue = getNextResponse();
+        foreach(char letter in dialogue[index].ToCharArray()){
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(wordSpeed);
         }
     }
 
     public void NextLine(){
         contButton.SetActive(false);
 
-        string[] dialogue = dialogueNode.queryDialogue();
-        if(dialogue != null){
-            if (index < dialogue.Length - 1){
-                index++;
-                dialogueText.text = "";
-                StartCoroutine(Typing());
-            }else{
-                exit();
-            }
+        string[] dialogue = getNextResponse();
+        if (index < dialogue.Length - 1){
+            index++;
+            dialogueText.text = "";
+            StartCoroutine(Typing());
+        }else{
+            exit();
         }
     }
 }

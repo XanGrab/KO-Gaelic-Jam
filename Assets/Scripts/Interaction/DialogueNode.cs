@@ -2,14 +2,18 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DialogueNode : MonoBehaviour { 
-    public List<Item> conditions;
-    private string[] dialogue;
+[CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue/DialogueNode")]
+public class DialogueNode : ScriptableObject {
+    public List<Item> requiredItems;    
 
-    public string[] queryDialogue(List<Item> ctx){ 
-        foreach(var item in conditions){
-            if(ctx.Lookup)
+    [SerializeField] private string[] dialogue;
+    public string[] Dialogue => dialogue;
+
+    public bool checkConditions() {
+        bool ret = true;
+        foreach(var item in requiredItems) {
+            ret = ret && Inventory.instance.Lookup(item);
         }
-        return dialogue;
+        return ret;
     }
-}
+} 

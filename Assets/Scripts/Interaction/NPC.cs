@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     public string[] dialogue;
     public string[] dialogueSecret;
     public string[] dialogueToUse;
-    private int index;
+    private int index = 0;
 
     public GameObject contButton;
     public float wordSpeed;
@@ -22,9 +22,12 @@ public class NPC : MonoBehaviour
         zeroText();
     }
 
+    public void Start() {
+        dialogueToUse = dialogue;
+    }
+
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if(playerIsClose){
             if(dialoguePanel.activeInHierarchy){
                 //zeroText();

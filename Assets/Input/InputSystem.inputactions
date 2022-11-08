@@ -1,5 +1,5 @@
 {
-    "name": "StarterAssets",
+    "name": "Input",
     "maps": [
         {
             "name": "Player",
@@ -244,6 +244,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse;Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62c715de-b374-46d6-9951-7695a8993a74",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

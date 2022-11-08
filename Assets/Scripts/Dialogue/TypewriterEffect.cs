@@ -7,8 +7,8 @@ using TMPro;
 public class TypewriterEffect : MonoBehaviour {
     public float typeSpeed = 20f;
 
-    public void Run(string textToType, TMP_Text label) {
-        StartCoroutine( TypeText(textToType, label) );
+    public Coroutine Run(string textToType, TMP_Text label) {
+        return StartCoroutine( TypeText(textToType, label) );
     }
 
     private IEnumerator TypeText(string text2Type, TMP_Text label){

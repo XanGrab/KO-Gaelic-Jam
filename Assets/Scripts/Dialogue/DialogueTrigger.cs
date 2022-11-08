@@ -1,10 +1,9 @@
 using UnityEngine;
 
 public class DialogueTrigger : Interactable {
-    private DialogueUI ui;
+    private NPC npc;
 
     public override void Interact(){
         base.Interact();
-        // npc.playerIsClose = true;
     }
 }

@@ -1233,7 +1233,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5945524801746891877, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
+      propertyPath: m_Name
+      value: Body
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5945524801444849767, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
 --- !u!4 &1159087944 stripped
 Transform:
@@ -2560,6 +2565,7 @@ GameObject:
   - component: {fileID: 1919543812}
   - component: {fileID: 1919543811}
   - component: {fileID: 1919543810}
+  - component: {fileID: 1919543813}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -2646,6 +2652,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919543808}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1919543813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919543808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2449d6a146700ca4abba67db6fb15fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context:
+    criteria:
+    - key: foundbook
+      value: 0
+    inventory: []
 --- !u!1001 &1926667336
 PrefabInstance:
   m_ObjectHideFlags: 0

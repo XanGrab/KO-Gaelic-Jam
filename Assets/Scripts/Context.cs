@@ -1,25 +1,21 @@
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Context", menuName = "Global/Context")]
-public class Context : ScriptableObject {
-    public List<string> criteria;
-    public Inventory currentInventory;
+[System.Serializable]
+public class Context {
+    public Criterion[] criteria;
+    public List<Item> inventory;
 
     public bool IsValidContext(Context ctx) {
-        foreach (string _criteria in ctx.criteria) {
-            if(!criteria.Contains(_criteria)) return false;
-        }
-        if (currentInventory.IsEmpty()) {
-            if (currentInventory.IsEmpty() != ctx.currentInventory.IsEmpty()) return false;
-        } else {
-            foreach(var item in currentInventory.items) {
-                if(!ctx.currentInventory.Lookup(item)) return false;
-            }
-        }
+        // Iterate over criteria and evaluate conditional
 
         return true;
     }
+}
+
+[System.Serializable]
+public class Criterion {
+    public string key;
+    public int value;
 }

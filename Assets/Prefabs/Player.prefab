@@ -107,8 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
-  jump: 1
-  sprint: 1
+  jump: 0
+  sprint: 0
   analogMovement: 1
   cursorLocked: 0
   cursorInputForLook: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   BottomClamp: 0
   CameraAngleOverride: 0
   LockCameraPosition: 1
+  focus: {fileID: 0}
 --- !u!1 &5945524801746891877
 GameObject:
   m_ObjectHideFlags: 0

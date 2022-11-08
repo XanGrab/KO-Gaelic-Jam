@@ -142,56 +142,42 @@ public class ThirdPersonController : MonoBehaviour {
         GroundedCheck();
         Move();
 
-        if(_input.interact) {
-            Debug.Log("Interact pressed!");
+        //TODO: Refactor to interaction
+        if (_input.interact){
+            Ray ray = _mainCamera.GetComponent<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+            
+            if (Physics.Raycast(ray, out hit, 100)){
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                
+                if (interactable != null){
+                    float distance = Vector3.Distance(transform.position, interactable.interactionTransform.position);
+                    if (distance <= interactable.radius){
+                        SetFocus(interactable);
+                    }
+                    
+                }
+            }
             _input.interact = false;
         }
-        // // if press right mouse
-
-        // if (Input.GetMouseButtonDown(0)){
-        //     Ray ray = Camera.current.ScreenPointToRay(Input.mousePosition);
-        //     RaycastHit hit;
-            
-        //     if (Physics.Raycast(ray, out hit, 100)){
-        //         Interactable interactable = hit.collider.GetComponent<Interactable>();
-                
-        //         if (interactable != null){
-        //             float distance = Vector3.Distance(transform.position, interactable.interactionTransform.position);
-        //             if (distance <= interactable.radius){
-        //                 // SetFocus(interactable);
-        //             }
-                    
-        //         }
-        //     }
-        // }
-
-        // // if press left mouse
-        // if (Input.GetMouseButtonDown(1)){
-        //     Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        //     RaycastHit hit;
-            
-        //     if (Physics.Raycast(ray, out hit, 100)){
-        //         RemoveFocus();
-        //     }
-        // }
     }
 
-    // void SetFocus (Interactable newFocus){
-    //     if (newFocus != focus){
-    //         if (focus != null){
-    //             focus.OnDefocused();
-    //         }
-    //         focus = newFocus;
-    //     }
-    //     newFocus.OnFocused(transform);
-    // }
+    void SetFocus (Interactable newFocus){
+        if (newFocus != focus){
+            if (focus != null){
+                focus.OnDefocused();
+            }
+            focus = newFocus;
+        }
+        newFocus.OnFocused(transform);
+    }
 
-    // void RemoveFocus (){
-    //     if (focus != null){
-    //         focus.OnDefocused();
-    //     }
-    //     focus = null;
-    // }
+    void RemoveFocus (){
+        if (focus != null){
+            focus.OnDefocused();
+        }
+        focus = null;
+    }
 
     private void LateUpdate() {
         CameraRotation();

@@ -17,7 +17,7 @@ public class DialogueUI : MonoBehaviour {
     public static DialogueUI Instance { get { return _instance; } }
 
     public TMP_Text dialogueLabel;
-    public Button continueButton;
+    public Button continueButton; //TODO: show interaction key
 
     private TypewriterEffect typeFx;
     [SerializeField] DialogueNode test;
@@ -44,6 +44,7 @@ public class DialogueUI : MonoBehaviour {
     }
     
     public void ShowDialogue(DialogueNode toShow) {
+        gameObject.SetActive(true);
         StartCoroutine(StepThroughDialogue(toShow));
     }
 
@@ -52,6 +53,11 @@ public class DialogueUI : MonoBehaviour {
             yield return typeFx.Run(line, dialogueLabel);        
             yield return new WaitUntil(() => _input.Player.Interact.triggered);
         }
+        CloseDialogue();
     }
     
+    private void CloseDialogue() {
+        gameObject.SetActive(false);
+        dialogueLabel.text = string.Empty;
+    }
 }

@@ -10,11 +10,12 @@ using UnityEngine;
     Debug.LogError("New Unity Input System is required for the Character Inputs");
 #endif
 
-public class CharacterInputs : MonoBehaviour {
+public class PlayerInputs : MonoBehaviour {
     [Header("Character Input Values")]
     public Vector2 move;
     public Vector2 look;
     public bool jump;
+    public bool interact;
     public bool sprint;
 
     [Header("Movement Settings")]
@@ -40,6 +41,10 @@ public class CharacterInputs : MonoBehaviour {
         SprintInput(value.isPressed);
     }
 
+    public void OnInteract(InputValue value) {
+        InteractInput(value.isPressed);
+    }
+
     public void MoveInput(Vector2 newMoveDirection) {
         move = newMoveDirection;
     } 
@@ -54,6 +59,10 @@ public class CharacterInputs : MonoBehaviour {
 
     public void SprintInput(bool newSprintState) {
         sprint = newSprintState;
+    }
+
+    public void InteractInput(bool newInteraction) {
+        interact = newInteraction;
     }
     
     private void OnApplicationFocus(bool hasFocus) {

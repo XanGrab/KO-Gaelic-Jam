@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5945524801444849766}
   - component: {fileID: 5945524801444849760}
   - component: {fileID: 5945524801444849761}
-  - component: {fileID: 5945524801444849767}
+  - component: {fileID: 3285305049949495362}
   - component: {fileID: 5945524801444849762}
   m_Layer: 0
   m_Name: Player
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5945524801444849767
+--- !u!114 &3285305049949495362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,16 +102,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5945524801444849772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7bb0531888dc57fd8efdc05dcbbbe6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 102099b7d8705d32092dae830e41beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
-  jump: 1
-  sprint: 1
-  analogMovement: 1
-  cursorLocked: 0
-  cursorInputForLook: 0
+  jump: 0
+  interact: 0
+  sprint: 0
+  analogMovement: 0
+  cursorLocked: 1
+  cursorInputForLook: 1
 --- !u!114 &5945524801444849762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ MonoBehaviour:
   Gravity: -15
   JumpTimeout: 0.5
   FallTimeout: 0.15
-  Grounded: 1
+  Grounded: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.28
   GroundLayers:
@@ -146,6 +147,7 @@ MonoBehaviour:
   BottomClamp: 0
   CameraAngleOverride: 0
   LockCameraPosition: 1
+  focus: {fileID: 0}
 --- !u!1 &5945524801746891877
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,9 +98,8 @@ public class ThirdPersonController : MonoBehaviour {
     private PlayerInput _playerInput;
     private Animator _animator;
     private CharacterController _controller;
-    private CharacterInputs _input;
+    private PlayerInputs _input;
     private GameObject _mainCamera;
-    Camera cam;
 
     private const float _threshold = 0.01f;
 
@@ -116,10 +115,7 @@ public class ThirdPersonController : MonoBehaviour {
         }
     }
 
-
     private void Awake() {
-        // create a camera object
-        cam = Camera.main;
         // get a reference to our main camera
         if (_mainCamera == null)
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -127,11 +123,9 @@ public class ThirdPersonController : MonoBehaviour {
     }
 
     private void Start() {
-        // _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-        
         _hasAnimator = TryGetComponent(out _animator);
         _controller = GetComponent<CharacterController>();
-        _input = GetComponent<CharacterInputs>();
+        _input = GetComponent<PlayerInputs>();
         _playerInput = GetComponent<PlayerInput>();
 
         AssignAnimationIDs();
@@ -148,9 +142,9 @@ public class ThirdPersonController : MonoBehaviour {
         GroundedCheck();
         Move();
 
-        // if press right mouse
-        if (Input.GetMouseButtonDown(0)){
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //TODO: Refactor to interaction
+        if (_input.interact){
+            Ray ray = _mainCamera.GetComponent<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
             
             if (Physics.Raycast(ray, out hit, 100)){
@@ -164,16 +158,7 @@ public class ThirdPersonController : MonoBehaviour {
                     
                 }
             }
-        }
-
-        // if press left mouse
-        if (Input.GetMouseButtonDown(1)){
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)){
-                RemoveFocus();
-            }
+            _input.interact = false;
         }
     }
 

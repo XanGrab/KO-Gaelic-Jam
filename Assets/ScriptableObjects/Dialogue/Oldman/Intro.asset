@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38a12e3a3fec1ee18d559ef992d759a, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: 
-  requiredItems:
-  - item: {fileID: 0}
-    requirement: 0
+  criteria:
+    criteria: []
+    inventory: []
   dialogue:
-  - "Hello \U0001F642\U0001F642\U0001F642<sprite=15>"
+  - Hello
   - This is a test!
   - Maybe?

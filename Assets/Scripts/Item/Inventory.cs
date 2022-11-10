@@ -2,15 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Inventory : MonoBehaviour
-{
+public class Inventory : MonoBehaviour {
     #region Singleton
-
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
-
-    public int space = 20;
-
     public static Inventory instance;
 
     void Awake(){
@@ -20,13 +13,21 @@ public class Inventory : MonoBehaviour
         }
         instance = this;
     }
+    #endregion //Singleton
 
-    #endregion
+    public int space = 20;
+    [SerializeField] public List<Item> items = new List<Item>();
 
-    public List<Item> items = new List<Item>();
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+
+    public bool IsEmpty() {
+        if(items.Count == 0) return true;
+        return false;
+    }
 
     public bool Lookup (Item q) {
-        foreach(Item i in items){
+        foreach(Item i in items){ 
             if(i.name == q.name) return true;
         }
         return false;
@@ -55,8 +56,8 @@ public class Inventory : MonoBehaviour
     public void Remove (Item item){
         items.Remove(item);
 
-        if(onItemChangedCallback != null){
-                onItemChangedCallback.Invoke();
+        if(onItemChangedCallback != null) {
+            onItemChangedCallback.Invoke();
         }
     }
 }

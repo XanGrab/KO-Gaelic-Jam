@@ -48,6 +48,10 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public bool contains (Item item){
+        return items.Contains(item);
+    }
+
     public void Remove (Item item){
         items.Remove(item);
 

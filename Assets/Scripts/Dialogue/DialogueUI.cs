@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 #if ENABLE_INPUT_SYSTEM
@@ -12,7 +13,6 @@ Debug.LogError("New Unity Input System is required for the Character Inputs");
 
 public class DialogueUI : MonoBehaviour {
     private InputSystem _input;
-
     private static DialogueUI _instance;
     public static DialogueUI Instance { get { return _instance; } }
 
@@ -22,6 +22,9 @@ public class DialogueUI : MonoBehaviour {
     private TypewriterEffect typeFx;
     [SerializeField] DialogueNode test;
 
+    [SerializeField] 
+    public static UnityEvent<DialogueNode> OnDialogueStart;
+
     private void Awake() {
         if (_instance != null && _instance != this) Destroy(this.gameObject);
         else{
@@ -30,20 +33,28 @@ public class DialogueUI : MonoBehaviour {
 
         typeFx = GetComponent<TypewriterEffect>();
         _input = new InputSystem();
+
+        if(OnDialogueStart == null) OnDialogueStart = new UnityEvent<DialogueNode>();
+        OnDialogueStart.AddListener(ShowDialogue);
+
+        gameObject.SetActive(false);
     }
 
     private void OnEnable() {
         _input.Enable();
-    }
-    private void OnDisable() {
-        _input.Enable();
+        OnDialogueStart.AddListener(ShowDialogue);
     }
 
-    private void Start() {
-        if (test) ShowDialogue(test);    
+    private void OnDisable() {
+        _input.Enable();
+        OnDialogueStart.RemoveListener(ShowDialogue);
+    }
+
+    public static void StartDialogue(DialogueNode toShow) {
+        OnDialogueStart.Invoke(toShow);
     }
     
-    public void ShowDialogue(DialogueNode toShow) {
+    void ShowDialogue(DialogueNode toShow) {
         gameObject.SetActive(true);
         StartCoroutine(StepThroughDialogue(toShow));
     }

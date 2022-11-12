@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
-{
+public class Interactable : MonoBehaviour {
     public float radius = 3f;
     public Transform interactionTransform;
 
@@ -10,32 +9,32 @@ public class Interactable : MonoBehaviour
 
     bool hasInteracted = false;
 
-    public virtual void Interact (){
+    public virtual void Interact() {
         //need to be overwritten
         Debug.Log("Interacting with " + transform.name);
     }
 
-    void Update (){
+    void Update() {
         if(isFocus && !hasInteracted){
             Interact();
             hasInteracted = true;
         }
     }
 
-    public void OnFocused (Transform playerTransform){
+    public void OnFocused(Transform playerTransform) {
         isFocus = true;
         player = playerTransform;
         hasInteracted = false;
     }
 
-    public void OnDefocused (){
+    public void OnDefocused() { 
         isFocus = false;
         player = null;
         hasInteracted = false;
 
     }
 
-    void OnDrawGizmosSelected (){
+    void OnDrawGizmosSelected() {
         if (interactionTransform == null){
             interactionTransform = transform;
         }

@@ -15,7 +15,6 @@ public class PlayerInputs : MonoBehaviour {
     public Vector2 move;
     public Vector2 look;
     public bool jump;
-    public bool interact;
     public bool sprint;
 
     [Header("Movement Settings")]
@@ -41,10 +40,6 @@ public class PlayerInputs : MonoBehaviour {
         SprintInput(value.isPressed);
     }
 
-    public void OnInteract(InputValue value) {
-        InteractInput(value.isPressed);
-    }
-
     public void MoveInput(Vector2 newMoveDirection) {
         move = newMoveDirection;
     } 
@@ -59,10 +54,6 @@ public class PlayerInputs : MonoBehaviour {
 
     public void SprintInput(bool newSprintState) {
         sprint = newSprintState;
-    }
-
-    public void InteractInput(bool newInteraction) {
-        interact = newInteraction;
     }
     
     private void OnApplicationFocus(bool hasFocus) {

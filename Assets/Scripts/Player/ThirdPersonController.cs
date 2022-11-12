@@ -82,7 +82,6 @@ public class ThirdPersonController : MonoBehaviour {
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
-    public Interactable focus;
 
     // timeout deltatime
     private float _jumpTimeoutDelta;
@@ -119,7 +118,8 @@ public class ThirdPersonController : MonoBehaviour {
         // get a reference to our main camera
         if (_mainCamera == null)
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        
+
+    //    DialogueUI.dialogueEvent.AddListener(); 
     }
 
     private void Start() {
@@ -141,42 +141,6 @@ public class ThirdPersonController : MonoBehaviour {
         JumpAndGravity();
         GroundedCheck();
         Move();
-
-        //TODO: Refactor to interaction
-        if (_input.interact){
-            Ray ray = _mainCamera.GetComponent<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)){
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                
-                if (interactable != null){
-                    float distance = Vector3.Distance(transform.position, interactable.interactionTransform.position);
-                    if (distance <= interactable.radius){
-                        SetFocus(interactable);
-                    }
-                    
-                }
-            }
-            _input.interact = false;
-        }
-    }
-
-    void SetFocus (Interactable newFocus){
-        if (newFocus != focus){
-            if (focus != null){
-                focus.OnDefocused();
-            }
-            focus = newFocus;
-        }
-        newFocus.OnFocused(transform);
-    }
-
-    void RemoveFocus (){
-        if (focus != null){
-            focus.OnDefocused();
-        }
-        focus = null;
     }
 
     private void LateUpdate() {

@@ -11,6 +11,8 @@ public class DialogueTrigger : Interactable {
     public override void Interact() {
         base.Interact();
         DialogueNode dialogue = npc.dialogue;
-        if(dialogue) DialogueUI.StartDialogue(dialogue);
+        if(dialogue) {
+            DialogueUI.StartDialogue(dialogue);
+        } else { Debug.Log("No dialogue"); }
     }
 }

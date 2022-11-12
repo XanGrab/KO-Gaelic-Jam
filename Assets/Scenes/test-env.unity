@@ -1304,6 +1304,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5945524801444849767, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
     - {fileID: 1219272143321823890, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
+    - {fileID: 6623484275015634440, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
 --- !u!4 &1159087944 stripped
 Transform:
@@ -2650,6 +2651,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 173d123c3e337ee4c9d101f4c77225f5, type: 3}
   m_PrefabInstance: {fileID: 1869707968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1908074604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4601432294752719463, guid: 0a27a091f4d4ae161aafc884ea7d0dfe, type: 3}
+  m_PrefabInstance: {fileID: 1159087943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1908074609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908074604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7379a4dd1b14458a28fab69c60aca2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interact:
+    m_Name: Interact
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 86412bce-34a6-466b-b3c6-e6e7b3bcf87d
+    m_Processors: 
+    m_Interactions: Tap
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0be844ef-fd7e-404a-afa1-4964982d9c74
+      m_Path: <Keyboard>/e
+      m_Interactions: Tap
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 85a112e9-96d9-46d2-ac93-7bac24d69713
+      m_Path: <Mouse>/leftButton
+      m_Interactions: Tap
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
+  _interacting: 0
 --- !u!1 &1919543808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memory:
     criteria:
-    - key: bookfound
+    - key: bookFound
       value: 0
     inventory: []
   dialogue: {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}

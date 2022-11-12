@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,12 +19,13 @@ public class DialogueUI : MonoBehaviour {
 
     public TMP_Text dialogueLabel;
     public Button continueButton; //TODO: show interaction key
+    public GameObject panel;
 
     private TypewriterEffect typeFx;
-    [SerializeField] DialogueNode test;
 
-    [SerializeField] 
-    public static UnityEvent<DialogueNode> OnDialogueStart;
+    public delegate void DialogueAction();
+    public static event DialogueAction OnDialogueStart;
+    public static event DialogueAction OnDialogueEnd;
 
     private void Awake() {
         if (_instance != null && _instance != this) Destroy(this.gameObject);
@@ -31,35 +33,27 @@ public class DialogueUI : MonoBehaviour {
             _instance = this;
         }
 
-        typeFx = GetComponent<TypewriterEffect>();
+        typeFx = GetComponentInChildren(typeof(TypewriterEffect)) as TypewriterEffect;
         _input = new InputSystem();
 
-        if(OnDialogueStart == null) OnDialogueStart = new UnityEvent<DialogueNode>();
-        OnDialogueStart.AddListener(ShowDialogue);
-
-        gameObject.SetActive(false);
+        panel.SetActive(false);
     }
 
     private void OnEnable() {
         _input.Enable();
-        OnDialogueStart.AddListener(ShowDialogue);
     }
 
     private void OnDisable() {
-        _input.Enable();
-        OnDialogueStart.RemoveListener(ShowDialogue);
-    }
-
-    public static void StartDialogue(DialogueNode toShow) {
-        OnDialogueStart.Invoke(toShow);
+        _input.Disable();
     }
     
-    void ShowDialogue(DialogueNode toShow) {
-        gameObject.SetActive(true);
-        StartCoroutine(StepThroughDialogue(toShow));
+    public static void StartDialogue(DialogueNode toShow) {
+        _instance.panel.SetActive(true);
+        OnDialogueStart.Invoke();
+        _instance.StartCoroutine(_instance.StepThroughDialogue(toShow));
     }
 
-    public IEnumerator StepThroughDialogue(DialogueNode toStep) {
+    private IEnumerator StepThroughDialogue(DialogueNode toStep) {
         foreach (var line in toStep.Dialogue) {
             yield return typeFx.Run(line, dialogueLabel);        
             yield return new WaitUntil(() => _input.Player.Interact.triggered);
@@ -68,7 +62,8 @@ public class DialogueUI : MonoBehaviour {
     }
     
     private void CloseDialogue() {
-        gameObject.SetActive(false);
+        OnDialogueEnd.Invoke();
+        panel.SetActive(false);
         dialogueLabel.text = string.Empty;
     }
 }

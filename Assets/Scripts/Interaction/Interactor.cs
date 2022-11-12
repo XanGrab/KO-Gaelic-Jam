@@ -31,7 +31,6 @@ public class Interactor : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if(other.TryGetComponent<Interactable>(out var interactable)){
-            Debug.Log("Found and interactable: " + interactable.gameObject.name);
             if(_interacting) {
                 SetFocus(interactable);
             }   

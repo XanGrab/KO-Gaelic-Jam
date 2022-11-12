@@ -82,6 +82,7 @@ public class ThirdPersonController : MonoBehaviour {
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
+    private bool _canMove = true;
 
     // timeout deltatime
     private float _jumpTimeoutDelta;
@@ -118,8 +119,6 @@ public class ThirdPersonController : MonoBehaviour {
         // get a reference to our main camera
         if (_mainCamera == null)
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-
-    //    DialogueUI.dialogueEvent.AddListener(); 
     }
 
     private void Start() {
@@ -135,14 +134,30 @@ public class ThirdPersonController : MonoBehaviour {
         _fallTimeoutDelta = FallTimeout;
     }
 
+    private void OnEnable() {
+        DialogueUI.OnDialogueStart += DisableMovment;
+        DialogueUI.OnDialogueEnd += EnableMovment;
+    }
+
     private void Update() {
         _hasAnimator = TryGetComponent(out _animator);
 
         JumpAndGravity();
         GroundedCheck();
-        Move();
+        if(_canMove) Move();
     }
 
+    public bool CanMove() {
+        return _canMove;
+    }
+
+    public void DisableMovment() {
+        _canMove = false;
+    }
+
+    public void EnableMovment() {
+        _canMove = true;
+    }
     private void LateUpdate() {
         CameraRotation();
     }

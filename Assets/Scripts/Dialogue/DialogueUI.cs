@@ -23,9 +23,9 @@ public class DialogueUI : MonoBehaviour {
 
     private TypewriterEffect typeFx;
 
-    public delegate void DialogueAction();
-    public static event DialogueAction OnDialogueStart;
-    public static event DialogueAction OnDialogueEnd;
+    public static bool dialogueActive;
+    public static event Action OnDialogueStart;
+    public static event Action OnDialogueEnd;
 
     private void Awake() {
         if (_instance != null && _instance != this) Destroy(this.gameObject);
@@ -42,13 +42,12 @@ public class DialogueUI : MonoBehaviour {
     private void OnEnable() {
         _input.Enable();
     }
-
-    private void OnDisable() {
-        _input.Disable();
-    }
     
     public static void StartDialogue(DialogueNode toShow) {
+        if (dialogueActive) return;
+
         _instance.panel.SetActive(true);
+        dialogueActive = true;
         OnDialogueStart.Invoke();
         _instance.StartCoroutine(_instance.StepThroughDialogue(toShow));
     }
@@ -62,8 +61,13 @@ public class DialogueUI : MonoBehaviour {
     }
     
     private void CloseDialogue() {
-        OnDialogueEnd.Invoke();
         panel.SetActive(false);
         dialogueLabel.text = string.Empty;
+        dialogueActive = false;
+        OnDialogueEnd.Invoke();
+    }
+
+    private void OnDestroy() {
+       _input.Disable(); 
     }
 }

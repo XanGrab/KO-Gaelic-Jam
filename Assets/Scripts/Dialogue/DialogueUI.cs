@@ -63,8 +63,15 @@ public class DialogueUI : MonoBehaviour {
     private void CloseDialogue() {
         panel.SetActive(false);
         dialogueLabel.text = string.Empty;
-        dialogueActive = false;
         OnDialogueEnd.Invoke();
+
+        StartCoroutine(BufferDialougeClose(0.5f));
+    }
+
+    // Waits a short number of ms to prevent player from restarting the conversation
+    private IEnumerator BufferDialougeClose(float buffer_t){
+        yield return new WaitForSeconds(buffer_t);
+        dialogueActive = false;
     }
 
     private void OnDestroy() {

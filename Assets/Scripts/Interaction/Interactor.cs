@@ -30,14 +30,16 @@ public class Interactor : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-        if(other.TryGetComponent<Interactable>(out var interactable)){
-            if(_interacting) {
-                SetFocus(interactable);
-            }   
+        if(!DialogueUI.dialogueActive){
+            if(other.TryGetComponent<Interactable>(out var interactable)){
+                if(_interacting) {
+                    SetFocus(interactable);
+                }   
+            }
         }
     }
 
-    void SetFocus (Interactable newFocus) {
+    void SetFocus(Interactable newFocus) {
         if (newFocus != focus){
             if (focus != null){
                 focus.OnDefocused();

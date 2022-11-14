@@ -11,7 +11,7 @@ Debug.LogError("New Unity Input System is required for the Character Inputs");
 [RequireComponent(typeof(Collider))]
 public class Interactor : MonoBehaviour {
     public InputAction interact;
-    public bool _interacting;
+    private bool _interacting;
 
     private GameObject _mainCamera;
     private Interactable focus; // The object currently focused on by the player

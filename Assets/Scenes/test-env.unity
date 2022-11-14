@@ -2693,7 +2693,6 @@ MonoBehaviour:
       m_Action: Interact
       m_Flags: 0
     m_Flags: 0
-  _interacting: 0
 --- !u!1 &1919543808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,7 +2810,10 @@ MonoBehaviour:
     - key: bookFound
       value: 0
     inventory: []
-  dialogue: {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}
+  dialogue:
+  - {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}
+  - {fileID: 11400000, guid: 4c2cba6e9896bb3a4a3809c7bddde4d9, type: 2}
+  - {fileID: 11400000, guid: c97639a420fe6ba558a718a7628f2403, type: 2}
 --- !u!114 &1919543814
 MonoBehaviour:
   m_ObjectHideFlags: 0

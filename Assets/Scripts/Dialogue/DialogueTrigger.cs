@@ -9,10 +9,15 @@ public class DialogueTrigger : Interactable {
     }
 
     public override void Interact() {
-        DialogueNode dialogue = npc.dialogue;
-        if(dialogue && !DialogueUI.dialogueActive) {
+        if(DialogueUI.dialogueActive) return;
+
+        DialogueNode dialogue = npc.getCurrentDialogue();
+
+        if(dialogue) {
             base.Interact();
             DialogueUI.StartDialogue(dialogue);
+        } else {
+            Debug.Log("No dialogue found for: " + npc.name);
         }
     }
 }

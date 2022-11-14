@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3438572944813075379}
   - component: {fileID: 8627359948986824114}
   - component: {fileID: 3347763871816017756}
-  - component: {fileID: 6623484275015634440}
+  - component: {fileID: 2907100320028131237}
   m_Layer: 0
   m_Name: Interaction
   m_TagString: Untagged
@@ -61,9 +61,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1.5}
+  m_Size: {x: 1, y: 2.0819864, z: 1.75}
   m_Center: {x: 0, y: 0, z: 0.75}
---- !u!114 &6623484275015634440
+--- !u!114 &2907100320028131237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,9 +72,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 4601432294752719463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443b1e3dcbb940c4980cf870cae2f8a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7379a4dd1b14458a28fab69c60aca2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interact:
+    m_Name: Interact
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 21575586-799b-4d3f-b580-9cd5225c2872
+    m_Processors: 
+    m_Interactions: Tap
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4d4b0635-ac00-4784-aeb2-ded6aa5d9f52
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    - m_Name: 
+      m_Id: f0c7c2a4-35a2-4b13-9317-8cfc022f899d
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &5130133336308840299
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +307,6 @@ MonoBehaviour:
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   jump: 0
-  interact: 0
   sprint: 0
   analogMovement: 0
   cursorLocked: 1

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criteria:
     criteria:
-    - key: Foundbook
+    - key: bookFound
       value: 1
     inventory: []
+  priorety: 0
   dialogue:
   - You found my book!

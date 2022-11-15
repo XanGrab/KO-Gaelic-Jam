@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour {
         return true;
     }
 
-    public bool contains (Item item){
+    public bool Contains(Item item){
         return items.Contains(item);
     }
 

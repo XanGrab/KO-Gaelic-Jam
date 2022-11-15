@@ -7,8 +7,8 @@ public class Global : MonoBehaviour {
     private static Global _instance;
     public static Global Instance { get { return _instance; } }
 
-    public Context global;
-    private Inventory inventory;
+    public static Context global;
+    public static Inventory inventory;
 
     private void Awake() {
         if (_instance != null && _instance != this) {

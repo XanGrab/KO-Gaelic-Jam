@@ -9,22 +9,6 @@ public class Context {
     // public DataTable _criteria;
     public List<Criterion> criteria;
     public List<Item> inventory;
-    public int priorety;
-
-    public int IsValidContext(Context current) {
-        priorety = 0;
-        foreach (var criterion in criteria) {
-           if(!current.criteria.Contains(criterion)) return -1;
-           priorety += 1;
-        } 
-
-        foreach (var item in inventory) {
-           if(!current.inventory.Contains(item)) return -1;
-           priorety += 1;
-        } 
-
-        return priorety;
-    }
 }
 
 [System.Serializable]

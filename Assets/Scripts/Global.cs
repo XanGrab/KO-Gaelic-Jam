@@ -2,13 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Inventory))]
+// [RequireComponent(typeof(Inventory))]
 public class Global : MonoBehaviour {
     private static Global _instance;
     public static Global Instance { get { return _instance; } }
 
     public static Context global;
-    public static Inventory inventory;
+    [SerializeField]
+    public Inventory playerInventory;
 
     private void Awake() {
         if (_instance != null && _instance != this) {
@@ -17,6 +18,6 @@ public class Global : MonoBehaviour {
             _instance = this;
         }
 
-        inventory = GetComponent<Inventory>();
+        
     }
 }

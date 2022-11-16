@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: BookLost
   m_EditorClassIdentifier: 
   criteria:
-    criteria:
-    - key: bookFound
-      value: 0
-    inventory: []
+    criteria: []
+  priorety: 0
   dialogue:
   - Hello
   - This is a test!

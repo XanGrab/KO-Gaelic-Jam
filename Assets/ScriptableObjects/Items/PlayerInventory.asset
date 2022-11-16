@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d38a12e3a3fec1ee18d559ef992d759a, type: 3}
-  m_Name: Quest Completed
+  m_Script: {fileID: 11500000, guid: 0495186d2cb51a34495ecdb6170b5dc3, type: 3}
+  m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  criteria:
-    criteria:
-    - key: bookFound
-      value: 1
-    inventory: []
-  priorety: 0
-  dialogue:
-  - You found my book!
+  space: 20
+  items: []

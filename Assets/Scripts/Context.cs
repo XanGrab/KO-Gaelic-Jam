@@ -7,8 +7,18 @@ using UnityEngine;
 [System.Serializable]
 public class Context {
     // public DataTable _criteria;
-    public List<Criterion> criteria;
-    public List<Item> inventory;
+    public Condition[] criteria;
+
+    public bool checkConditions(){
+        bool eval = true;
+        foreach(var criterion in criteria){
+            eval = criterion.Invoke();
+        }
+        return eval;
+    }
+    // public List<Criterion> criteria;
+    [Serializable]
+    public class Condition : SerializableCallback<bool> {}
 }
 
 [System.Serializable]

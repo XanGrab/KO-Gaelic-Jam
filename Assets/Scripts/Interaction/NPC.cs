@@ -7,26 +7,26 @@ public class NPC : MonoBehaviour {
     public Context memory;
     public List<DialogueNode> dialogue;
 
-    /**
-    * Append the global inventory to the current NPC's memory
-    */
-    public Context getCurrentContext() {
-        Context current = memory;
+    // /**
+    // * Append the global inventory to the current NPC's memory
+    // */
+    // public Context getCurrentContext() {
+    //     Context current = memory;
 
-        foreach(var item in Global.inventory.items) {
-            if(!current.inventory.Contains(item)){
-                current.inventory.Add(item);
-            }
-        }
+    //     foreach(var item in Global.Instance.playerInventory.items) {
+    //         if(!current.inventory.Contains(item)){
+    //             current.inventory.Add(item);
+    //         }
+    //     }
 
-        return current;
-    }
+    //     return current;
+    // }
 
     public DialogueNode getCurrentDialogue() {
         List<DialogueNode> currentDialogue = new List<DialogueNode>();
         foreach(var dialogueNode in dialogue){
-            Context current = getCurrentContext();
-            if(dialogueNode.IsValidContext(current)) {
+            // Context current = getCurrentContext();
+            if(dialogueNode.IsValidContext()) {
                 currentDialogue.Add(dialogueNode);
             }
         }

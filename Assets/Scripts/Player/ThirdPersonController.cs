@@ -82,7 +82,7 @@ public class ThirdPersonController : MonoBehaviour {
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
-    public Interactable focus;
+    private bool _canMove = true;
 
     // timeout deltatime
     private float _jumpTimeoutDelta;
@@ -98,9 +98,8 @@ public class ThirdPersonController : MonoBehaviour {
     private PlayerInput _playerInput;
     private Animator _animator;
     private CharacterController _controller;
-    private CharacterInputs _input;
+    private PlayerInputs _input;
     private GameObject _mainCamera;
-    Camera cam;
 
     private const float _threshold = 0.01f;
 
@@ -116,22 +115,16 @@ public class ThirdPersonController : MonoBehaviour {
         }
     }
 
-
     private void Awake() {
-        // create a camera object
-        cam = Camera.main;
         // get a reference to our main camera
         if (_mainCamera == null)
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        
     }
 
     private void Start() {
-        // _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-        
         _hasAnimator = TryGetComponent(out _animator);
         _controller = GetComponent<CharacterController>();
-        _input = GetComponent<CharacterInputs>();
+        _input = GetComponent<PlayerInputs>();
         _playerInput = GetComponent<PlayerInput>();
 
         AssignAnimationIDs();
@@ -141,59 +134,30 @@ public class ThirdPersonController : MonoBehaviour {
         _fallTimeoutDelta = FallTimeout;
     }
 
+    private void OnEnable() {
+        DialogueUI.OnDialogueStart += DisableMovment;
+        DialogueUI.OnDialogueEnd += EnableMovment;
+    }
+
     private void Update() {
         _hasAnimator = TryGetComponent(out _animator);
 
         JumpAndGravity();
         GroundedCheck();
-        Move();
-
-        // if press right mouse
-        if (Input.GetMouseButtonDown(0)){
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)){
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                
-                if (interactable != null){
-                    float distance = Vector3.Distance(transform.position, interactable.interactionTransform.position);
-                    if (distance <= interactable.radius){
-                        SetFocus(interactable);
-                    }
-                    
-                }
-            }
-        }
-
-        // if press left mouse
-        if (Input.GetMouseButtonDown(1)){
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)){
-                RemoveFocus();
-            }
-        }
+        if(_canMove) Move();
     }
 
-    void SetFocus (Interactable newFocus){
-        if (newFocus != focus){
-            if (focus != null){
-                focus.OnDefocused();
-            }
-            focus = newFocus;
-        }
-        newFocus.OnFocused(transform);
+    public bool CanMove() {
+        return _canMove;
     }
 
-    void RemoveFocus (){
-        if (focus != null){
-            focus.OnDefocused();
-        }
-        focus = null;
+    public void DisableMovment() {
+        _canMove = false;
     }
 
+    public void EnableMovment() {
+        _canMove = true;
+    }
     private void LateUpdate() {
         CameraRotation();
     }

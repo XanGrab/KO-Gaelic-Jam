@@ -1,12 +1,10 @@
 using System;
-using System.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class Context {
-    // public DataTable _criteria;
     public Condition[] criteria;
 
     public bool checkConditions(){
@@ -16,7 +14,6 @@ public class Context {
         }
         return eval;
     }
-    // public List<Criterion> criteria;
     [Serializable]
     public class Condition : SerializableCallback<bool> {}
 }

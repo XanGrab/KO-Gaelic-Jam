@@ -1118,10 +1118,10 @@ RectTransform:
   m_Father: {fileID: 2018580861}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -401, y: -211}
-  m_SizeDelta: {x: 42.8589, y: 41.5695}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 63, y: 50}
+  m_SizeDelta: {x: 42.858887, y: 41.56952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981554720
 MonoBehaviour:
@@ -2176,7 +2176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd85c4003e86ea24b9d5486aa770f3a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.79
+      value: 15.18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd85c4003e86ea24b9d5486aa770f3a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2184,7 +2184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd85c4003e86ea24b9d5486aa770f3a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.67
+      value: 15.57
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd85c4003e86ea24b9d5486aa770f3a2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3182,7 +3182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919543808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.04, y: -0.62, z: 6.47}
+  m_LocalPosition: {x: 0.17, y: -5.39, z: 13.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3277,7 +3277,8 @@ MonoBehaviour:
   dialogue:
   - {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}
   - {fileID: 11400000, guid: 4c2cba6e9896bb3a4a3809c7bddde4d9, type: 2}
-  - {fileID: 11400000, guid: c97639a420fe6ba558a718a7628f2403, type: 2}
+  - {fileID: 11400000, guid: 1acb4db6b236d024a96ba029f769ea36, type: 2}
+  - {fileID: 11400000, guid: c30faa4eafbc68949b39c9ec61a59d3c, type: 2}
 --- !u!114 &1919543814
 MonoBehaviour:
   m_ObjectHideFlags: 0

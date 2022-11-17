@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d38a12e3a3fec1ee18d559ef992d759a, type: 3}
-  m_Name: BookLost
+  m_Name: CaneLost
   m_EditorClassIdentifier: 
-  criteria:
+  conditions:
     criteria: []
   priorety: 0
   dialogue:
-  - Hello
-  - This is a test!
-  - Maybe?
+  - Gabh mo leisgeul! An cuidich thu mi?
+  - Feumaidh mi mo <b>mhaide</b><sprite=0> a lorg.
+  - "Ghoid na r\xF2in s\xF9grach sin e agus ruith iad air falbh dhan tr\xE0igh!"

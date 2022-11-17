@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d38a12e3a3fec1ee18d559ef992d759a, type: 3}
-  m_Name: FoundBook
+  m_Name: FoundCane
   m_EditorClassIdentifier: 
   conditions:
     criteria:
@@ -21,7 +21,7 @@ MonoBehaviour:
         intValue: 0
         floatValue: 0
         stringValue: 
-        objectValue: {fileID: 11400000, guid: 366d3edb01e4adf4892fbc8fb31f9cbf, type: 2}
+        objectValue: {fileID: 11400000, guid: eaf11bf346f90ec74af4e757fac27e3f, type: 2}
         argType: 5
         _typeName: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _dynamic: 0
@@ -30,4 +30,6 @@ MonoBehaviour:
       dirty: 0
   priorety: 10
   dialogue:
-  - You found my book!
+  - "\xD2! Sin mo <b>mhaide</b><sprite=0>! "
+  - "M\xF2ran taing! "
+  - "Chan ann \xE0s an seo a tha thu, an ann?"

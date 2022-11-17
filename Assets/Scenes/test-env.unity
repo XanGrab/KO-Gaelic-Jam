@@ -2807,9 +2807,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memory:
     criteria:
-    - key: bookFound
-      value: 0
-    inventory: []
+    - _target: {fileID: 0}
+      _methodName: 
+      _args: []
+      _dynamic: 0
+      _typeName: Context+Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      dirty: 0
   dialogue:
   - {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}
   - {fileID: 11400000, guid: 4c2cba6e9896bb3a4a3809c7bddde4d9, type: 2}

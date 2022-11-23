@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class NPC : MonoBehaviour {
-    public Context memory;
+    // public Context memory;
     public List<DialogueNode> dialogue;
 
     // /**
@@ -33,16 +33,16 @@ public class NPC : MonoBehaviour {
 
         // Debug.Log($"[NPC] current dialogue count:[{currentDialogue.Count}]");
         // Debug.Log($"[NPC] got dialogue i[{index}]");
-        return FindMaxPriorety(currentDialogue);
+        return currentDialogue != null ? FindMaxPriorety(currentDialogue) : null;
     }
 
     public DialogueNode FindMaxPriorety(List<DialogueNode> list){
-    if (list.Count == 0) Debug.LogError("[NPC] Empty list");
+        if (list.Count == 0) Debug.LogError("[NPC] Empty list");
 
-    DialogueNode maxPriorety = list[0];
-    foreach (DialogueNode d in list) {
-        if (d.priorety > maxPriorety.priorety) maxPriorety = d;
+            DialogueNode maxPriorety = list[0];
+            foreach (DialogueNode d in list) {
+                if (d.priorety > maxPriorety.priorety) maxPriorety = d;
+            }
+        return maxPriorety;
     }
-    return maxPriorety;
-}
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   conditions:
     criteria:
     - _target: {fileID: 11400000, guid: e74fd0d68f326baecbe01bbb499dec12, type: 2}
-      _methodName: Lookup
+      _methodName: Contains
       _args:
       - boolValue: 0
         intValue: 0
@@ -25,8 +25,7 @@ MonoBehaviour:
         argType: 5
         _typeName: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _dynamic: 0
-      _typeName: Context+Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeName: Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       dirty: 0
   priorety: 10
   dialogue:

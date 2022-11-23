@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cane
   m_EditorClassIdentifier: 
   name: Cane
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0a88520b88bf8759ea4fac5559baf166, type: 3}
   isDefaultItem: 0

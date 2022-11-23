@@ -3324,8 +3324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2449d6a146700ca4abba67db6fb15fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memory:
-    criteria: []
   dialogue:
   - {fileID: 11400000, guid: 61d625183e6a4d7bd9bb1d9dd4eb92ad, type: 2}
   - {fileID: 11400000, guid: 4c2cba6e9896bb3a4a3809c7bddde4d9, type: 2}

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue/DialogueNode")]
+[System.Serializable]
 public class DialogueNode : ScriptableObject {
     public Context conditions;
     public int priorety;

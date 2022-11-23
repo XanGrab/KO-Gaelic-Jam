@@ -1,4 +1,4 @@
-# Lost World (working title)
+# Foreign Lands (working title)
 ## Repo for Group 2's Kilted Otter Game for Curric 576
 
 ## Installation

@@ -5,7 +5,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Context {
-    public Condition[] criteria;
+    // public List<ConditionalItems> criteria;
+    public List<Condition> criteria;
 
     public bool checkConditions(){
         bool eval = true;
@@ -14,8 +15,6 @@ public class Context {
         }
         return eval;
     }
-    [Serializable]
-    public class Condition : SerializableCallback<bool> {}
 }
 
 [System.Serializable]
@@ -32,4 +31,11 @@ public class Criterion : IEquatable<Criterion> {
         if(other.key.Equals(key)) return true;
         return false;
     }
+}
+
+[System.Serializable]
+public class Condition : SerializableCallback<bool> {}
+//https://github.com/Siccity/SerializableCallback/issues/24
+[System.Serializable]
+public class ConditionalItem : SerializableCallback<Item, bool> {
 }

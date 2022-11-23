@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d38a12e3a3fec1ee18d559ef992d759a, type: 3}
-  m_Name: FoundBook
+  m_Name: FoundCane
   m_EditorClassIdentifier: 
   conditions:
     criteria:
     - _target: {fileID: 11400000, guid: e74fd0d68f326baecbe01bbb499dec12, type: 2}
-      _methodName: Lookup
+      _methodName: Contains
       _args:
       - boolValue: 0
         intValue: 0
         floatValue: 0
         stringValue: 
-        objectValue: {fileID: 11400000, guid: 366d3edb01e4adf4892fbc8fb31f9cbf, type: 2}
+        objectValue: {fileID: 11400000, guid: eaf11bf346f90ec74af4e757fac27e3f, type: 2}
         argType: 5
         _typeName: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _dynamic: 0
-      _typeName: Context+Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeName: Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       dirty: 0
   priorety: 10
   dialogue:
-  - "\xD2! Sin mo leabhar! (Surprise)"
-  - "M\xF2ran taing(Grateful)"
+  - "\xD2! Sin mo <b>mhaide</b><sprite=0>! "
+  - "M\xF2ran taing! "
+  - "Chan ann \xE0s an seo a tha thu, an ann?"

@@ -25,12 +25,12 @@ public class Pause : MonoBehaviour {
 
     public void PausePressed() {
         if(!isPaused){
-            OnPause.Invoke();
+            OnPause?.Invoke();
             pausePanel.SetActive(true);
             isPaused = true;
             Time.timeScale = 0f;
         }else{
-            OnUnpause.Invoke();
+            OnUnpause?.Invoke();
             pausePanel.SetActive(false);
             isPaused = false;
             Time.timeScale = 1f;

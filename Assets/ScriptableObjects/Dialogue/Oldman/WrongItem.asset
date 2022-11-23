@@ -25,9 +25,8 @@ MonoBehaviour:
         argType: 5
         _typeName: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _dynamic: 0
-      _typeName: Context+Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeName: Condition, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       dirty: 0
   priorety: 10
   dialogue:
-  - An do lorg thu mo leabhar?(seems to find the wrong item.)
+  - Feumaidh mi mo <b>mhaide</b><sprite=0> a lorg...

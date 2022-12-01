@@ -231,8 +231,9 @@ MonoBehaviour:
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 0}
-  FootstepAudioClips: []
-  FootstepAudioVolume: 0.5
+  FootstepAudioClips:
+  - {fileID: 8300000, guid: f9dd9e576b5101f42865d22233c983b3, type: 3}
+  FootstepAudioVolume: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.5

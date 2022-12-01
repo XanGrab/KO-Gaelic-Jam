@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 107840381}
   - component: {fileID: 107840380}
-  - component: {fileID: 107840379}
   - component: {fileID: 107840382}
   m_Layer: 0
   m_Name: Main Camera
@@ -142,14 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &107840379
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107840378}
-  m_Enabled: 1
 --- !u!20 &107840380
 Camera:
   m_ObjectHideFlags: 0
@@ -254,7 +245,7 @@ GameObject:
   - component: {fileID: 422354397}
   - component: {fileID: 422354396}
   m_Layer: 5
-  m_Name: play
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,6 +326,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9193785607162824005, guid: 635e84c15eef442a99fc4716a0e7e47d, type: 3}
+        m_TargetAssemblyTypeName: AudioManager, AudioManager
+        m_MethodName: PlayOnce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &422354397
@@ -659,6 +662,7 @@ GameObject:
   - component: {fileID: 1131242765}
   - component: {fileID: 1131242764}
   - component: {fileID: 1131242763}
+  - component: {fileID: 1131242767}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -749,6 +753,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!81 &1131242767
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131242761}
+  m_Enabled: 1
 --- !u!1 &1149704624
 GameObject:
   m_ObjectHideFlags: 0

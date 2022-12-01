@@ -14,7 +14,7 @@ public class Pause : MonoBehaviour {
     void OnEnable() {
         interact.Enable();
         interact.performed += ctx => { 
-            Debug.Log("Pause Pressed"); 
+            // Debug.Log("Pause Pressed"); 
             PausePressed(); 
         };
     }
@@ -24,6 +24,7 @@ public class Pause : MonoBehaviour {
     }
 
     public void PausePressed() {
+        AudioManager.PlayOnce("Pause");
         if(!isPaused){
             OnPause?.Invoke();
             pausePanel.SetActive(true);

@@ -3,7 +3,22 @@ guid: 27229ca6817f6cae283814d05b6e7826
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: 67501b37011220a7885e94358e2e37b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Belt
+    second: {fileID: 2100000, guid: 39f18372b35b96d3695348079e0158b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PladMaterial
+    second: {fileID: 2100000, guid: 784610bb076812544876f365e312d919, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

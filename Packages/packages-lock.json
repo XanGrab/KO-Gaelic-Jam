@@ -203,6 +203,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.xangrab.audio-manager": {
+      "version": "https://github.com/XanGrab/UnityAudioManager.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "588333b1f0c040d99d78d4617ea962f316293f6b"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

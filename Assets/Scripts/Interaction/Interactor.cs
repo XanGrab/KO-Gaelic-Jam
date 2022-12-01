@@ -33,6 +33,7 @@ public class Interactor : MonoBehaviour {
         if(!DialogueUI.dialogueActive){
             if(other.TryGetComponent<Interactable>(out var interactable)){
                 if(_interacting) {
+                    AudioManager.Play("Interact");
                     SetFocus(interactable);
                 }   
             }

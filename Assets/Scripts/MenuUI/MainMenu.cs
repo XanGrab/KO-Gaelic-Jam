@@ -14,7 +14,13 @@ public class MainMenu : MonoBehaviour {
         Pause.OnUnpause += ToggleInstructions;
     }
 
+    private void Start() {
+        AudioManager.Play("MenuMusic");
+    }
+
     public void PlayGame() {
+        AudioManager.Stop("MenuMusic");
+        AudioManager.Play("StartingMusic");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

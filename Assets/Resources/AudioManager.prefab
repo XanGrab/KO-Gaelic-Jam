@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &423182616511538500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7658346484551653147}
+  - component: {fileID: 9193785607162824005}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7658346484551653147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423182616511538500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9193785607162824005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423182616511538500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5b563463d6024aa3ccb389ddad275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Pause
+    clip: {fileID: 8300000, guid: dce5563b93e580246a8fb3164c9b4cb5, type: 3}
+    volume: 0.3
+    loop: 0
+    source: {fileID: 0}
+    output: {fileID: 4848536119541941969, guid: 44d28d4ff2ce180d8874f534f387f297, type: 2}
+  - name: Button
+    clip: {fileID: 8300000, guid: d0aac2bf52478ae4bb2f57c90447ffec, type: 3}
+    volume: 0.3
+    loop: 0
+    source: {fileID: 0}
+    output: {fileID: 4848536119541941969, guid: 44d28d4ff2ce180d8874f534f387f297, type: 2}
+  - name: StartingMusic
+    clip: {fileID: 8300000, guid: 54714f55b0ca67b449378cd25bb04cdc, type: 3}
+    volume: 0.3
+    loop: 1
+    source: {fileID: 0}
+    output: {fileID: -5009742623330848177, guid: 44d28d4ff2ce180d8874f534f387f297, type: 2}
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: 2ca65bfbbc4c078419fa117a8557178a, type: 3}
+    volume: 0.3
+    loop: 1
+    source: {fileID: 0}
+    output: {fileID: -5009742623330848177, guid: 44d28d4ff2ce180d8874f534f387f297, type: 2}
+  - name: Interact
+    clip: {fileID: 8300000, guid: 46479bd2382703d42917210804f0972a, type: 3}
+    volume: 0.1
+    loop: 0
+    source: {fileID: 0}
+    output: {fileID: 4848536119541941969, guid: 44d28d4ff2ce180d8874f534f387f297, type: 2}
